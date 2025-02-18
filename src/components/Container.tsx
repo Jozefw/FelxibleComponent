@@ -1,21 +1,20 @@
 import React from 'react'
 import {type ReactNode, type ElementType, type ComponentPropsWithoutRef} from 'react'
 
-
 // type ContainerProps ={
 //     as:ElementType;
 //     children:ReactNode;
 // } & ComponentPropsWithoutRef
 
-type ContainerProps<PlaceHolder extends ElementType> ={
+type ContainerProps<PlaceHolder extends ElementType>={
     as?:PlaceHolder;
     children:ReactNode;
-} & ComponentPropsWithoutRef<PlaceHolder>
+} & ComponentPropsWithoutRef<PlaceHolder>;
 
 
-export default function Container<AnotherPlaceHolder extends ElementType>({as, children,...props}:ContainerProps<AnotherPlaceHolder>) {
+export default function Container<OtherThing extends ElementType>({as, children,...props}:ContainerProps<OtherThing>) {
     const AsComponent = as || 'div';
     return (
-        <AsComponent {...props}>{children}</AsComponent>
+            <AsComponent {...props}>{children}</AsComponent>
     )
 }
