@@ -1,5 +1,4 @@
-import React from 'react'
-import {ComponentPropsWithoutRef} from 'react';
+import React, {ComponentPropsWithoutRef} from 'react';
 
 type InputProps = {
     id:string;
@@ -9,7 +8,7 @@ export default function Input({label,id,...props}:InputProps) {
     return (
         <p>
             <label>{label}</label>
-            <input id={id} {...props}></input>
+            <input id={id} name={id} {...props}></input>
         </p>
     )
 }
